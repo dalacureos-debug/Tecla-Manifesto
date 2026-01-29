@@ -85,21 +85,6 @@
             to { transform: scale(1); opacity: 1; }
         }
     </style>
-    <!-- Chosen Palette: Tecla Calm (Blue/Slate/White) -->
-    <!-- Application Structure Plan: Dashboard-style storytelling. 
-         1. Header: Brand Identity.
-         2. Genesis: The Core Concept.
-         3. Pillars: Interactive Grid.
-         4. Simulator: Live code demo of the logic mentioned in the report.
-         5. Impact: Data Visualization.
-         6. Distribution: Pricing/Tier cards.
-         7. Technical: CSS Diagram.
-         This structure moves from abstract philosophy to concrete features, then to impact and implementation. -->
-    <!-- Visualization & Content Choices: 
-         - Impact Radar Chart: To visually demonstrate the "MEC-Shield" coverage vs traditional apps.
-         - Logic Simulator: HTML/JS interactive buttons to prove the "Smart Interpreter" concept.
-         - Tier Cards: HTML Flexbox for clear comparison.
-         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
 <body class="antialiased">
 
@@ -110,14 +95,22 @@
                 <span class="text-2xl">🛡️</span>
                 <div>
                     <h1 class="font-bold text-lg text-blue-700 tracking-tight">Tecla Lite</h1>
-                    <span class="text-[10px] uppercase font-bold text-slate-400">MEC-Shield Ultimate </span>
+                    <span class="text-[10px] uppercase font-bold text-slate-400">MEC-Shield Ultimate</span>
                 </div>
             </div>
-            <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-500">
-                <a href="#genesis" class="hover:text-blue-600 transition">Génese</a>
-                <a href="#pillars" class="hover:text-blue-600 transition">Pilares</a>
-                <a href="#impact" class="hover:text-blue-600 transition">Impacto</a>
-                <a href="#distribution" class="hover:text-blue-600 transition">Acesso</a>
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-500">
+                    <a href="#genesis" class="hover:text-blue-600 transition" data-i18n="nav_genesis">Génese</a>
+                    <a href="#pillars" class="hover:text-blue-600 transition" data-i18n="nav_pillars">Pilares</a>
+                    <a href="#impact" class="hover:text-blue-600 transition" data-i18n="nav_impact">Impacto</a>
+                    <a href="#distribution" class="hover:text-blue-600 transition" data-i18n="nav_access">Acesso</a>
+                </div>
+                <!-- Lang Selector -->
+                <select id="lang-select" onchange="changeLang(this.value)" class="bg-white border border-slate-200 text-slate-600 text-xs font-bold rounded-lg p-2 outline-none hover:border-blue-300 transition cursor-pointer">
+                    <option value="pt">PT</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
             </div>
         </div>
     </nav>
@@ -127,15 +120,14 @@
         <div class="container mx-auto text-center max-w-4xl">
             <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-6 fade-in-up">Afrokódico Engene | Dala De Carvalho</div>
             <h1 class="text-4xl md:text-6xl font-black text-slate-800 mb-6 leading-tight fade-in-up delay-100">
-                Tecnologia como <span class="text-blue-600">Escudo</span> e <span class="text-blue-600">Ponte</span>
+                <span data-i18n="hero_title_1">Tecnologia como</span> <span class="text-blue-600" data-i18n="hero_shield">Escudo</span> <span data-i18n="hero_and">e</span> <span class="text-blue-600" data-i18n="hero_bridge">Ponte</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed fade-in-up delay-200">
-                Uma cápsula de autonomia num único arquivo. Sem servidores, sem dependências, com privacidade absoluta.
-                O ecossistema de tecnologia assistiva portátil para 2026.
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed fade-in-up delay-200" data-i18n="hero_desc">
+                Uma cápsula de autonomia num único arquivo. Sem servidores, sem dependências, com privacidade absoluta. O ecossistema de tecnologia assistiva portátil para 2026.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center fade-in-up delay-300">
-                <a href="#simulator" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition transform hover:-translate-y-1">Experimentar Lógica</a>
-                <a href="#technical" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition">Filosofia Técnica</a>
+                <a href="#simulator" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition transform hover:-translate-y-1" data-i18n="btn_sim">Experimentar Lógica</a>
+                <a href="#technical" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition" data-i18n="btn_tech">Filosofia Técnica</a>
             </div>
         </div>
     </header>
@@ -144,37 +136,36 @@
     <section id="genesis" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto mb-12 text-center">
-                <h2 class="text-3xl font-bold text-slate-800 mb-4">1. O Que Criamos?</h2>
-                <p class="text-slate-600">
-                    A Tecla Lite não é apenas software; é um ecossistema "Single-File" (Arquivo Único). 
-                    Nesta secção, explore os quatro pilares fundamentais que compõem este escudo protetor.
+                <h2 class="text-3xl font-bold text-slate-800 mb-4" data-i18n="sec1_title">1. O Que Criamos?</h2>
+                <p class="text-slate-600" data-i18n="sec1_desc">
+                    A Tecla Lite não é apenas software; é um ecossistema "Single-File" (Arquivo Único). Nesta secção, explore os quatro pilares fundamentais que compõem este escudo protetor.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div id="pillars" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Pillar 1 -->
                 <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-blue-500">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition">🗣️</div>
-                    <h3 class="font-bold text-lg mb-2">Comunicação Aumentativa</h3>
-                    <p class="text-sm text-slate-500">PECS Inteligente e Smart Interpreter para traduzir murmúrios em intenções claras.</p>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="p1_title">Comunicação Aumentativa</h3>
+                    <p class="text-sm text-slate-500" data-i18n="p1_desc">PECS Inteligente e Smart Interpreter para traduzir murmúrios em intenções claras.</p>
                 </div>
                 <!-- Pillar 2 -->
                 <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-green-500">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition">🛡️</div>
-                    <h3 class="font-bold text-lg mb-2">Autonomia & Segurança</h3>
-                    <p class="text-sm text-slate-500">Cartões de Local Inteligentes e Botão SOS para acesso imediato a ajuda.</p>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="p2_title">Autonomia & Segurança</h3>
+                    <p class="text-sm text-slate-500" data-i18n="p2_desc">Cartões de Local Inteligentes e Botão SOS para acesso imediato a ajuda.</p>
                 </div>
                 <!-- Pillar 3 -->
                 <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-purple-500">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition">🧩</div>
-                    <h3 class="font-bold text-lg mb-2">Terapia & Desenvolvimento</h3>
-                    <p class="text-sm text-slate-500">Musicoterapia (Piano Pro), Arte, Lógica e Regulação Sensorial.</p>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="p3_title">Terapia & Desenvolvimento</h3>
+                    <p class="text-sm text-slate-500" data-i18n="p3_desc">Musicoterapia (Piano Pro), Arte, Lógica e Regulação Sensorial.</p>
                 </div>
                 <!-- Pillar 4 -->
                 <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-orange-500">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition">📅</div>
-                    <h3 class="font-bold text-lg mb-2">Gestão de Vida</h3>
-                    <p class="text-sm text-slate-500">Rotinas visuais, higiene e nutrição, operando 100% offline.</p>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="p4_title">Gestão de Vida</h3>
+                    <p class="text-sm text-slate-500" data-i18n="p4_desc">Rotinas visuais, higiene e nutrição, operando 100% offline.</p>
                 </div>
             </div>
         </div>
@@ -185,15 +176,15 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-4">Cadeia de Intenção: Simulação</h2>
-                    <p class="text-slate-600 mb-6">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4" data-i18n="sim_title">Cadeia de Intenção: Simulação</h2>
+                    <p class="text-slate-600 mb-6" data-i18n="sim_desc">
                         O manifesto descreve uma lógica onde a repetição gera contexto. Para pessoas com autismo não-verbal ou afasia, a simplicidade é chave.
                         <br><br>
                         <strong>Teste a lógica descrita no relatório:</strong> Clique repetidamente no botão "Água" para ver como o sistema evolui a frase automaticamente.
                     </p>
                     <div class="bg-white p-4 rounded-xl shadow-inner border border-slate-200">
-                        <p class="text-xs font-bold text-slate-400 uppercase mb-2">Log do Smart Interpreter:</p>
-                        <div id="simulator-log" class="font-mono text-sm text-slate-700 min-h-[60px]">
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2" data-i18n="sim_log_title">Log do Smart Interpreter:</p>
+                        <div id="simulator-log" class="font-mono text-sm text-slate-700 min-h-[60px]" data-i18n="sim_waiting">
                             Aguardando interação...
                         </div>
                     </div>
@@ -212,20 +203,20 @@
                         <!-- Water Button (Interactive) -->
                         <button onclick="simulateWater()" class="logic-btn bg-white border-2 border-blue-100 p-4 rounded-2xl flex flex-col items-center shadow-sm hover:border-blue-400">
                             <span class="text-4xl mb-1">💧</span>
-                            <span class="text-[10px] font-bold uppercase text-slate-600">Água</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600" data-i18n="pecs_water">Água</span>
                         </button>
                         
                         <!-- Dummy Buttons for Visuals -->
                         <button class="bg-white border-2 border-slate-100 p-4 rounded-2xl flex flex-col items-center opacity-50 cursor-not-allowed">
                             <span class="text-4xl mb-1">🍎</span>
-                            <span class="text-[10px] font-bold uppercase text-slate-600">Comer</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600" data-i18n="pecs_eat">Comer</span>
                         </button>
                         <button class="bg-white border-2 border-slate-100 p-4 rounded-2xl flex flex-col items-center opacity-50 cursor-not-allowed">
                             <span class="text-4xl mb-1">🚽</span>
-                            <span class="text-[10px] font-bold uppercase text-slate-600">WC</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600" data-i18n="pecs_wc">WC</span>
                         </button>
                     </div>
-                    <p class="mt-4 text-xs text-blue-500 font-bold">↑ Clique na Água repetidamente</p>
+                    <p class="mt-4 text-xs text-blue-500 font-bold" data-i18n="sim_hint">↑ Clique na Água repetidamente</p>
                 </div>
             </div>
         </div>
@@ -235,10 +226,9 @@
     <section id="impact" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-800 mb-4">2. Potencial de Impacto</h2>
-                <p class="text-slate-600">
-                    A universalidade da Tecla Lite permite que ela sirva desde crianças com autismo até idosos e zonas rurais sem internet.
-                    O gráfico abaixo compara a filosofia <strong>MEC-Shield</strong> com soluções tradicionais de SaaS (Software as a Service).
+                <h2 class="text-3xl font-bold text-slate-800 mb-4" data-i18n="sec2_title">2. Potencial de Impacto</h2>
+                <p class="text-slate-600" data-i18n="sec2_desc">
+                    A universalidade da Tecla Lite permite que ela sirva desde crianças com autismo até idosos e zonas rurais sem internet. O gráfico abaixo compara a filosofia MEC-Shield com soluções tradicionais de SaaS (Software as a Service).
                 </p>
             </div>
 
@@ -249,16 +239,16 @@
             
             <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div class="p-4 bg-slate-50 rounded-xl">
-                    <h4 class="font-bold text-slate-800">Autismo Não-Verbal</h4>
-                    <p class="text-xs text-slate-500 mt-1">Cresce com o vocabulário da criança.</p>
+                    <h4 class="font-bold text-slate-800" data-i18n="imp_1_t">Autismo Não-Verbal</h4>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="imp_1_d">Cresce com o vocabulário da criança.</p>
                 </div>
                 <div class="p-4 bg-slate-50 rounded-xl">
-                    <h4 class="font-bold text-slate-800">Pós-AVC / Afasia</h4>
-                    <p class="text-xs text-slate-500 mt-1">Reduz a frustração preenchendo lacunas.</p>
+                    <h4 class="font-bold text-slate-800" data-i18n="imp_2_t">Pós-AVC / Afasia</h4>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="imp_2_d">Reduz a frustração preenchendo lacunas.</p>
                 </div>
                 <div class="p-4 bg-slate-50 rounded-xl">
-                    <h4 class="font-bold text-slate-800">Offline / Rural</h4>
-                    <p class="text-xs text-slate-500 mt-1">Funciona via Bluetooth/Zap sem internet.</p>
+                    <h4 class="font-bold text-slate-800" data-i18n="imp_3_t">Offline / Rural</h4>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="imp_3_d">Funciona via Bluetooth/Zap sem internet.</p>
                 </div>
             </div>
         </div>
@@ -268,50 +258,50 @@
     <section id="distribution" class="py-16 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">3. Modelo de Distribuição</h2>
-                <p class="text-slate-400">Acesso definido pelo grau de necessidade, não pelo poder de compra.</p>
+                <h2 class="text-3xl font-bold mb-4" data-i18n="sec3_title">3. Modelo de Distribuição</h2>
+                <p class="text-slate-400" data-i18n="sec3_desc">Acesso definido pelo grau de necessidade, não pelo poder de compra.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Level 1 -->
                 <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition relative">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 1</div>
+                    <div class="absolute top-0 right-0 bg-blue-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl" data-i18n="lvl_1_badge">Nível 1</div>
                     <div class="text-5xl mb-4">🌱</div>
-                    <h3 class="text-2xl font-bold mb-2">A Semente</h3>
-                    <p class="text-slate-400 text-sm mb-6">Gratuito / Open Access</p>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="lvl_1_t">A Semente</h3>
+                    <p class="text-slate-400 text-sm mb-6" data-i18n="lvl_1_sub">Gratuito / Open Access</p>
                     <ul class="text-sm space-y-3 text-slate-300 mb-8">
-                        <li class="flex gap-2"><span>✓</span> Famílias e Situações de Emergência</li>
-                        <li class="flex gap-2"><span>✓</span> Ficheiro .html único</li>
-                        <li class="flex gap-2"><span>✓</span> Partilha via WhatsApp/Bluetooth</li>
-                        <li class="flex gap-2"><span>✓</span> Configuração Local</li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_1_f1">Famílias e Situações de Emergência</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_1_f2">Ficheiro .html único</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_1_f3">Partilha via WhatsApp/Bluetooth</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_1_f4">Configuração Local</span></li>
                     </ul>
                 </div>
 
                 <!-- Level 2 -->
                 <div class="bg-slate-800 p-8 rounded-3xl border border-blue-500 transform md:-translate-y-4 shadow-2xl shadow-blue-900/20 relative">
-                    <div class="absolute top-0 right-0 bg-blue-500 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 2</div>
+                    <div class="absolute top-0 right-0 bg-blue-500 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl" data-i18n="lvl_2_badge">Nível 2</div>
                     <div class="text-5xl mb-4">🛡️</div>
-                    <h3 class="text-2xl font-bold mb-2">O Escudo</h3>
-                    <p class="text-blue-400 text-sm mb-6">Personalização Institucional</p>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="lvl_2_t">O Escudo</h3>
+                    <p class="text-blue-400 text-sm mb-6" data-i18n="lvl_2_sub">Personalização Institucional</p>
                     <ul class="text-sm space-y-3 text-slate-300 mb-8">
-                        <li class="flex gap-2"><span>✓</span> Escolas e Clínicas</li>
-                        <li class="flex gap-2"><span>✓</span> Pictogramas pré-carregados</li>
-                        <li class="flex gap-2"><span>✓</span> Bloqueio de configurações</li>
-                        <li class="flex gap-2"><span>✓</span> Relatórios com logótipo</li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_2_f1">Escolas e Clínicas</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_2_f2">Pictogramas pré-carregados</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_2_f3">Bloqueio de configurações</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_2_f4">Relatórios com logótipo</span></li>
                     </ul>
                 </div>
 
                 <!-- Level 3 -->
                 <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-purple-500 transition relative">
-                    <div class="absolute top-0 right-0 bg-purple-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 3</div>
+                    <div class="absolute top-0 right-0 bg-purple-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl" data-i18n="lvl_3_badge">Nível 3</div>
                     <div class="text-5xl mb-4">🌉</div>
-                    <h3 class="text-2xl font-bold mb-2">A Ponte</h3>
-                    <p class="text-slate-400 text-sm mb-6">Hardware Dedicado (Kit MEC-Shield)</p>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="lvl_3_t">A Ponte</h3>
+                    <p class="text-slate-400 text-sm mb-6" data-i18n="lvl_3_sub">Hardware Dedicado (Kit MEC-Shield)</p>
                     <ul class="text-sm space-y-3 text-slate-300 mb-8">
-                        <li class="flex gap-2"><span>✓</span> Limitações severas</li>
-                        <li class="flex gap-2"><span>✓</span> Tablet robusto em modo Kiosk</li>
-                        <li class="flex gap-2"><span>✓</span> Capas de alto impacto</li>
-                        <li class="flex gap-2"><span>✓</span> Suporte técnico prioritário</li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_3_f1">Limitações severas</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_3_f2">Tablet robusto em modo Kiosk</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_3_f3">Capas de alto impacto</span></li>
+                        <li class="flex gap-2"><span>✓</span> <span data-i18n="lvl_3_f4">Suporte técnico prioritário</span></li>
                     </ul>
                 </div>
             </div>
@@ -323,30 +313,28 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-1">
-                    <h2 class="text-3xl font-bold text-slate-800 mb-4">4. Filosofia Local-First</h2>
-                    <p class="text-slate-600 mb-4">
-                        "Os dados pertencem a quem os gera."
-                    </p>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4" data-i18n="sec4_title">4. Filosofia Local-First</h2>
+                    <p class="text-slate-600 mb-4" data-i18n="sec4_quote">"Os dados pertencem a quem os gera."</p>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <div class="bg-red-100 p-2 rounded-lg text-red-600"><span class="font-bold">✕</span></div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Sem Rastreamento</h4>
-                                <p class="text-sm text-slate-500">Não sabemos quem usa, onde usa ou o que dizem.</p>
+                                <h4 class="font-bold text-slate-800" data-i18n="tech_1_t">Sem Rastreamento</h4>
+                                <p class="text-sm text-slate-500" data-i18n="tech_1_d">Não sabemos quem usa, onde usa ou o que dizem.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <div class="bg-green-100 p-2 rounded-lg text-green-600"><span class="font-bold">✓</span></div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Persistência Local</h4>
-                                <p class="text-sm text-slate-500">LocalStorage mantém rotinas e contactos mesmo se o dispositivo reiniciar.</p>
+                                <h4 class="font-bold text-slate-800" data-i18n="tech_2_t">Persistência Local</h4>
+                                <p class="text-sm text-slate-500" data-i18n="tech_2_d">LocalStorage mantém rotinas e contactos mesmo se o dispositivo reiniciar.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <div class="bg-blue-100 p-2 rounded-lg text-blue-600"><span class="font-bold">⚡</span></div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Leveza Extrema</h4>
-                                <p class="text-sm text-slate-500">Otimizado para rodar em dispositivos com 10 anos de idade.</p>
+                                <h4 class="font-bold text-slate-800" data-i18n="tech_3_t">Leveza Extrema</h4>
+                                <p class="text-sm text-slate-500" data-i18n="tech_3_d">Otimizado para rodar em dispositivos com 10 anos de idade.</p>
                             </div>
                         </li>
                     </ul>
@@ -358,8 +346,8 @@
                         <div class="absolute inset-0 bg-slate-100 rounded-full animate-pulse opacity-50"></div>
                         <div class="absolute inset-4 bg-white rounded-full shadow-xl flex flex-col items-center justify-center z-10 border-4 border-blue-500">
                             <span class="text-4xl mb-2">📱</span>
-                            <span class="font-bold text-slate-800">Dispositivo</span>
-                            <span class="text-[10px] text-slate-500">Dados Locais</span>
+                            <span class="font-bold text-slate-800" data-i18n="diag_dev">Dispositivo</span>
+                            <span class="text-[10px] text-slate-500" data-i18n="diag_data">Dados Locais</span>
                         </div>
                         <!-- Satellites representing blocked cloud -->
                         <div class="absolute top-0 right-0 bg-red-50 text-red-400 p-2 rounded-lg text-xs font-bold border border-red-200">
@@ -374,12 +362,11 @@
     <!-- Footer -->
     <footer class="bg-slate-50 border-t border-slate-200 py-12">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-xl font-bold text-blue-700 mb-4">"Tecnologia com alma. Código com propósito."</h3>
-            <p class="text-slate-500 text-sm mb-8 max-w-2xl mx-auto">
-                A Tecla Lite é a materialização do desejo de curar através do código. 
-                Em 2026, projetamos estar em milhares de lares, servindo como a voz de quem não fala.
+            <h3 class="text-xl font-bold text-blue-700 mb-4" data-i18n="footer_quote">"Tecnologia com alma. Código com propósito."</h3>
+            <p class="text-slate-500 text-sm mb-8 max-w-2xl mx-auto" data-i18n="footer_desc">
+                A Tecla Lite é a materialização do desejo de curar através do código. Em 2026, projetamos estar em milhares de lares, servindo como a voz de quem não fala.
             </p>
-            <div class="text-xs text-slate-400 font-mono">
+            <div class="text-xs text-slate-400 font-mono" data-i18n="footer_copy">
                 Todos os direitos reservados © 2026 Afrokódico Engene.
             </div>
         </div>
@@ -387,28 +374,190 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // 1. Chart.js Implementation for Impact Analysis
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('impactChart').getContext('2d');
+        const i18n = {
+            pt: {
+                nav_genesis: "Génese", nav_pillars: "Pilares", nav_impact: "Impacto", nav_access: "Acesso",
+                hero_title_1: "Tecnologia como", hero_shield: "Escudo", hero_and: "e", hero_bridge: "Ponte",
+                hero_desc: "Uma cápsula de autonomia num único arquivo. Sem servidores, sem dependências, com privacidade absoluta. O ecossistema de tecnologia assistiva portátil para 2026.",
+                btn_sim: "Experimentar Lógica", btn_tech: "Filosofia Técnica",
+                sec1_title: "1. O Que Criamos?",
+                sec1_desc: "A Tecla Lite não é apenas software; é um ecossistema \"Single-File\" (Arquivo Único). Nesta secção, explore os quatro pilares fundamentais que compõem este escudo protetor.",
+                p1_title: "Comunicação Aumentativa", p1_desc: "PECS Inteligente e Smart Interpreter para traduzir murmúrios em intenções claras.",
+                p2_title: "Autonomia & Segurança", p2_desc: "Cartões de Local Inteligentes e Botão SOS para acesso imediato a ajuda.",
+                p3_title: "Terapia & Desenvolvimento", p3_desc: "Musicoterapia (Piano Pro), Arte, Lógica e Regulação Sensorial.",
+                p4_title: "Gestão de Vida", p4_desc: "Rotinas visuais, higiene e nutrição, operando 100% offline.",
+                sim_title: "Cadeia de Intenção: Simulação",
+                sim_desc: "O manifesto descreve uma lógica onde a repetição gera contexto. Para pessoas com autismo não-verbal ou afasia, a simplicidade é chave.<br><br><strong>Teste a lógica descrita no relatório:</strong> Clique repetidamente no botão \"Água\" para ver como o sistema evolui a frase automaticamente.",
+                sim_log_title: "Log do Smart Interpreter:", sim_waiting: "Aguardando interação...",
+                pecs_water: "Água", pecs_eat: "Comer", pecs_wc: "WC",
+                sim_hint: "↑ Clique na Água repetidamente",
+                sec2_title: "2. Potencial de Impacto",
+                sec2_desc: "A universalidade da Tecla Lite permite que ela sirva desde crianças com autismo até idosos e zonas rurais sem internet. O gráfico abaixo compara a filosofia MEC-Shield com soluções tradicionais de SaaS (Software as a Service).",
+                imp_1_t: "Autismo Não-Verbal", imp_1_d: "Cresce com o vocabulário da criança.",
+                imp_2_t: "Pós-AVC / Afasia", imp_2_d: "Reduz a frustração preenchendo lacunas.",
+                imp_3_t: "Offline / Rural", imp_3_d: "Funciona via Bluetooth/Zap sem internet.",
+                sec3_title: "3. Modelo de Distribuição", sec3_desc: "Acesso definido pelo grau de necessidade, não pelo poder de compra.",
+                lvl_1_badge: "Nível 1", lvl_1_t: "A Semente", lvl_1_sub: "Gratuito / Open Access",
+                lvl_1_f1: "Famílias e Situações de Emergência", lvl_1_f2: "Ficheiro .html único", lvl_1_f3: "Partilha via WhatsApp/Bluetooth", lvl_1_f4: "Configuração Local",
+                lvl_2_badge: "Nível 2", lvl_2_t: "O Escudo", lvl_2_sub: "Personalização Institucional",
+                lvl_2_f1: "Escolas e Clínicas", lvl_2_f2: "Pictogramas pré-carregados", lvl_2_f3: "Bloqueio de configurações", lvl_2_f4: "Relatórios com logótipo",
+                lvl_3_badge: "Nível 3", lvl_3_t: "A Ponte", lvl_3_sub: "Hardware Dedicado (Kit MEC-Shield)",
+                lvl_3_f1: "Limitações severas", lvl_3_f2: "Tablet robusto em modo Kiosk", lvl_3_f3: "Capas de alto impacto", lvl_3_f4: "Suporte técnico prioritário",
+                sec4_title: "4. Filosofia Local-First", sec4_quote: "\"Os dados pertencem a quem os gera.\"",
+                tech_1_t: "Sem Rastreamento", tech_1_d: "Não sabemos quem usa, onde usa ou o que dizem.",
+                tech_2_t: "Persistência Local", tech_2_d: "LocalStorage mantém rotinas e contactos mesmo se o dispositivo reiniciar.",
+                tech_3_t: "Leveza Extrema", tech_3_d: "Otimizado para rodar em dispositivos com 10 anos de idade.",
+                diag_dev: "Dispositivo", diag_data: "Dados Locais",
+                footer_quote: "\"Tecnologia com alma. Código com propósito.\"",
+                footer_desc: "A Tecla Lite é a materialização do desejo de curar através do código. Em 2026, projetamos estar em milhares de lares, servindo como a voz de quem não fala.",
+                footer_copy: "Todos os direitos reservados © 2026 Afrokódico Engene.",
+                // Chart & Sim Logic
+                chart_privacy: "Privacidade", chart_offline: "Offline", chart_cost: "Acessibilidade (Custo)", chart_simple: "Simplicidade", chart_light: "Leveza",
+                chart_label_tecla: "Tecla Lite (MEC-Shield)", chart_label_saas: "Apps Tradicionais (SaaS)",
+                sim_phr1: "Quero água.", sim_exp1: "[1º Clique: Necessidade Imediata]",
+                sim_phr2: "Por favor.", sim_exp2: "[2º Clique: Refinamento Social]",
+                sim_phr3: "Quero ir ao banheiro.", sim_exp3: "[3º Clique: Consequência Fisiológica]"
+            },
+            en: {
+                nav_genesis: "Genesis", nav_pillars: "Pillars", nav_impact: "Impact", nav_access: "Access",
+                hero_title_1: "Technology as", hero_shield: "Shield", hero_and: "and", hero_bridge: "Bridge",
+                hero_desc: "An autonomy capsule in a single file. No servers, no dependencies, with absolute privacy. The portable assistive technology ecosystem for 2026.",
+                btn_sim: "Try Logic", btn_tech: "Technical Philosophy",
+                sec1_title: "1. What Did We Create?",
+                sec1_desc: "Tecla Lite is not just software; it is a \"Single-File\" ecosystem. In this section, explore the four fundamental pillars that make up this protective shield.",
+                p1_title: "Augmentative Communication", p1_desc: "Smart PECS and Smart Interpreter to translate murmurs into clear intentions.",
+                p2_title: "Autonomy & Safety", p2_desc: "Smart Place Cards and SOS Button for immediate access to help.",
+                p3_title: "Therapy & Development", p3_desc: "Music Therapy (Piano Pro), Art, Logic, and Sensory Regulation.",
+                p4_title: "Life Management", p4_desc: "Visual routines, hygiene, and nutrition, operating 100% offline.",
+                sim_title: "Intention Chain: Simulation",
+                sim_desc: "The manifesto describes a logic where repetition generates context. For non-verbal autistic individuals or aphasia patients, simplicity is key.<br><br><strong>Test the logic described in the report:</strong> Click repeatedly on the \"Water\" button to see how the system evolves the phrase automatically.",
+                sim_log_title: "Smart Interpreter Log:", sim_waiting: "Waiting for interaction...",
+                pecs_water: "Water", pecs_eat: "Eat", pecs_wc: "WC",
+                sim_hint: "↑ Click Water repeatedly",
+                sec2_title: "2. Potential Impact",
+                sec2_desc: "The universality of Tecla Lite allows it to serve everyone from children with autism to the elderly and rural areas without internet. The chart below compares the MEC-Shield philosophy with traditional SaaS solutions.",
+                imp_1_t: "Non-Verbal Autism", imp_1_d: "Grows with the child's vocabulary.",
+                imp_2_t: "Post-Stroke / Aphasia", imp_2_d: "Reduces frustration by filling gaps.",
+                imp_3_t: "Offline / Rural", imp_3_d: "Works via Bluetooth/Zap without internet.",
+                sec3_title: "3. Distribution Model", sec3_desc: "Access defined by degree of need, not purchasing power.",
+                lvl_1_badge: "Level 1", lvl_1_t: "The Seed", lvl_1_sub: "Free / Open Access",
+                lvl_1_f1: "Families and Emergency Situations", lvl_1_f2: "Single .html file", lvl_1_f3: "Share via WhatsApp/Bluetooth", lvl_1_f4: "Local Configuration",
+                lvl_2_badge: "Level 2", lvl_2_t: "The Shield", lvl_2_sub: "Institutional Customization",
+                lvl_2_f1: "Schools and Clinics", lvl_2_f2: "Pre-loaded Pictograms", lvl_2_f3: "Settings Lock", lvl_2_f4: "Branded Reports",
+                lvl_3_badge: "Level 3", lvl_3_t: "The Bridge", lvl_3_sub: "Dedicated Hardware (MEC-Shield Kit)",
+                lvl_3_f1: "Severe limitations", lvl_3_f2: "Rugged Tablet in Kiosk Mode", lvl_3_f3: "High-impact Cases", lvl_3_f4: "Priority Technical Support",
+                sec4_title: "4. Local-First Philosophy", sec4_quote: "\"Data belongs to those who generate it.\"",
+                tech_1_t: "No Tracking", tech_1_d: "We don't know who uses it, where, or what they say.",
+                tech_2_t: "Local Persistence", tech_2_d: "LocalStorage keeps routines and contacts even if the device restarts.",
+                tech_3_t: "Extreme Lightness", tech_3_d: "Optimized to run on 10-year-old devices.",
+                diag_dev: "Device", diag_data: "Local Data",
+                footer_quote: "\"Technology with soul. Code with purpose.\"",
+                footer_desc: "Tecla Lite is the materialization of the desire to heal through code. In 2026, we project to be in thousands of homes, serving as the voice for those who cannot speak.",
+                footer_copy: "All rights reserved © 2026 Afrokódico Engene.",
+                // Chart & Sim Logic
+                chart_privacy: "Privacy", chart_offline: "Offline", chart_cost: "Accessibility (Cost)", chart_simple: "Simplicity", chart_light: "Lightness",
+                chart_label_tecla: "Tecla Lite (MEC-Shield)", chart_label_saas: "Traditional Apps (SaaS)",
+                sim_phr1: "I want water.", sim_exp1: "[1st Click: Immediate Need]",
+                sim_phr2: "Please.", sim_exp2: "[2nd Click: Social Refinement]",
+                sim_phr3: "I need the bathroom.", sim_exp3: "[3rd Click: Physiological Consequence]"
+            },
+            es: {
+                nav_genesis: "Génesis", nav_pillars: "Pilares", nav_impact: "Impacto", nav_access: "Acceso",
+                hero_title_1: "Tecnología como", hero_shield: "Escudo", hero_and: "y", hero_bridge: "Puente",
+                hero_desc: "Una cápsula de autonomía en un solo archivo. Sin servidores, sin dependencias, con privacidad absoluta. El ecosistema de tecnología de asistencia portátil para 2026.",
+                btn_sim: "Probar Lógica", btn_tech: "Filosofía Técnica",
+                sec1_title: "1. ¿Qué Creamos?",
+                sec1_desc: "Tecla Lite no es solo software; es un ecosistema \"Single-File\". En esta sección, explore los cuatro pilares fundamentales que componen este escudo protector.",
+                p1_title: "Comunicación Aumentativa", p1_desc: "PECS Inteligente y Smart Interpreter para traducir murmullos en intenciones claras.",
+                p2_title: "Autonomía y Seguridad", p2_desc: "Tarjetas de Lugar Inteligentes y Botón SOS para acceso inmediato a ayuda.",
+                p3_title: "Terapia y Desarrollo", p3_desc: "Musicoterapia (Piano Pro), Arte, Lógica y Regulación Sensorial.",
+                p4_title: "Gestión de Vida", p4_desc: "Rutinas visuales, higiene y nutrición, operando 100% offline.",
+                sim_title: "Cadena de Intención: Simulación",
+                sim_desc: "El manifiesto describe una lógica donde la repetición genera contexto. Para personas con autismo no verbal o afasia, la simplicidad es clave.<br><br><strong>Pruebe la lógica descrita:</strong> Haga clic repetidamente en el botón \"Agua\" para ver cómo el sistema evoluciona la frase automáticamente.",
+                sim_log_title: "Registro Smart Interpreter:", sim_waiting: "Esperando interacción...",
+                pecs_water: "Agua", pecs_eat: "Comer", pecs_wc: "WC",
+                sim_hint: "↑ Haga clic en Agua repetidamente",
+                sec2_title: "2. Potencial de Impacto",
+                sec2_desc: "La universalidad de Tecla Lite permite que sirva desde niños con autismo hasta ancianos y zonas rurales sin internet. El gráfico compara la filosofía MEC-Shield con soluciones tradicionales SaaS.",
+                imp_1_t: "Autismo No Verbal", imp_1_d: "Crece con el vocabulario del niño.",
+                imp_2_t: "Post-ACV / Afasia", imp_2_d: "Reduce la frustración llenando vacíos.",
+                imp_3_t: "Offline / Rural", imp_3_d: "Funciona vía Bluetooth/Zap sin internet.",
+                sec3_title: "3. Modelo de Distribución", sec3_desc: "Acceso definido por el grado de necesidad, no por el poder adquisitivo.",
+                lvl_1_badge: "Nivel 1", lvl_1_t: "La Semilla", lvl_1_sub: "Gratis / Acceso Abierto",
+                lvl_1_f1: "Familias y Situaciones de Emergencia", lvl_1_f2: "Archivo .html único", lvl_1_f3: "Compartir vía WhatsApp/Bluetooth", lvl_1_f4: "Configuración Local",
+                lvl_2_badge: "Nivel 2", lvl_2_t: "El Escudo", lvl_2_sub: "Personalización Institucional",
+                lvl_2_f1: "Escuelas y Clínicas", lvl_2_f2: "Pictogramas precargados", lvl_2_f3: "Bloqueo de configuraciones", lvl_2_f4: "Informes con logotipo",
+                lvl_3_badge: "Nivel 3", lvl_3_t: "El Puente", lvl_3_sub: "Hardware Dedicado (Kit MEC-Shield)",
+                lvl_3_f1: "Limitaciones severas", lvl_3_f2: "Tablet robusta en modo Quiosco", lvl_3_f3: "Fundas de alto impacto", lvl_3_f4: "Soporte técnico prioritario",
+                sec4_title: "4. Filosofía Local-First", sec4_quote: "\"Los datos pertenecen a quien los genera.\"",
+                tech_1_t: "Sin Rastreo", tech_1_d: "No sabemos quién usa, dónde usa o qué dicen.",
+                tech_2_t: "Persistencia Local", tech_2_d: "LocalStorage mantiene rutinas y contactos incluso si el dispositivo se reinicia.",
+                tech_3_t: "Ligereza Extrema", tech_3_d: "Optimizado para ejecutarse en dispositivos de hace 10 años.",
+                diag_dev: "Dispositivo", diag_data: "Datos Locales",
+                footer_quote: "\"Tecnología con alma. Código con propósito.\"",
+                footer_desc: "Tecla Lite es la materialización del deseo de curar a través del código. En 2026, proyectamos estar en miles de hogares, sirviendo como la voz de quienes no hablan.",
+                footer_copy: "Todos los derechos reservados © 2026 Afrokódico Engene.",
+                // Chart & Sim Logic
+                chart_privacy: "Privacidad", chart_offline: "Offline", chart_cost: "Accesibilidad (Costo)", chart_simple: "Simplicidad", chart_light: "Ligereza",
+                chart_label_tecla: "Tecla Lite (MEC-Shield)", chart_label_saas: "Apps Tradicionales (SaaS)",
+                sim_phr1: "Quiero agua.", sim_exp1: "[1er Clic: Necesidad Inmediata]",
+                sim_phr2: "Por favor.", sim_exp2: "[2do Clic: Refinamiento Social]",
+                sim_phr3: "Necesito el baño.", sim_exp3: "[3er Clic: Consecuencia Fisiológica]"
+            }
+        };
+
+        let currentLang = 'pt';
+        let chartInstance = null;
+
+        function changeLang(lang) {
+            currentLang = lang;
             
-            // Data derived from the Manifesto's emphasis on Privacy, Offline, and Simplicity
+            // 1. Update static text
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = i18n[lang][key];
+                    } else {
+                        el.innerHTML = i18n[lang][key];
+                    }
+                }
+            });
+
+            // 2. Update Logic Simulator Text (Reset)
+            document.getElementById('simulator-log').innerText = i18n[lang].sim_waiting;
+            document.getElementById('speech-bubble-area').innerHTML = '';
+            waterClickCount = 0;
+
+            // 3. Update Chart
+            updateChart(lang);
+        }
+
+        function updateChart(lang) {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            const txt = i18n[lang];
+
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
             const data = {
-                labels: ['Privacidade', 'Offline', 'Acessibilidade (Custo)', 'Simplicidade', 'Leveza'],
+                labels: [txt.chart_privacy, txt.chart_offline, txt.chart_cost, txt.chart_simple, txt.chart_light],
                 datasets: [{
-                    label: 'Tecla Lite (MEC-Shield)',
+                    label: txt.chart_label_tecla,
                     data: [100, 100, 100, 90, 95],
                     fill: true,
-                    backgroundColor: 'rgba(37, 99, 235, 0.2)', // Primary Blue transparent
+                    backgroundColor: 'rgba(37, 99, 235, 0.2)',
                     borderColor: 'rgb(37, 99, 235)',
                     pointBackgroundColor: 'rgb(37, 99, 235)',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
                     pointHoverBorderColor: 'rgb(37, 99, 235)'
                 }, {
-                    label: 'Apps Tradicionais (SaaS)',
+                    label: txt.chart_label_saas,
                     data: [40, 20, 30, 60, 40],
                     fill: true,
-                    backgroundColor: 'rgba(148, 163, 184, 0.2)', // Slate transparent
+                    backgroundColor: 'rgba(148, 163, 184, 0.2)',
                     borderColor: 'rgb(148, 163, 184)',
                     pointBackgroundColor: 'rgb(148, 163, 184)',
                     pointBorderColor: '#fff',
@@ -423,15 +572,13 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    elements: {
-                        line: { borderWidth: 3 }
-                    },
+                    elements: { line: { borderWidth: 3 } },
                     scales: {
                         r: {
                             angleLines: { display: true },
                             suggestedMin: 0,
                             suggestedMax: 100,
-                            ticks: { display: false } // Hide numbers for cleaner look
+                            ticks: { display: false }
                         }
                     },
                     plugins: {
@@ -440,7 +587,12 @@
                 }
             };
 
-            new Chart(ctx, config);
+            chartInstance = new Chart(ctx, config);
+        }
+
+        // 1. Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            changeLang('pt');
         });
 
         // 2. Logic Simulator (Smart Interpreter Demo)
@@ -452,17 +604,18 @@
             const bubbleArea = document.getElementById('speech-bubble-area');
             let phrase = "";
             let logicExplanation = "";
+            const txt = i18n[currentLang];
 
             // Chain of Intention Logic from Manifesto
             if (waterClickCount === 1) {
-                phrase = "Quero água.";
-                logicExplanation = "[1º Clique: Necessidade Imediata]";
+                phrase = txt.sim_phr1;
+                logicExplanation = txt.sim_exp1;
             } else if (waterClickCount === 2) {
-                phrase = "Por favor.";
-                logicExplanation = "[2º Clique: Refinamento Social]";
+                phrase = txt.sim_phr2;
+                logicExplanation = txt.sim_exp2;
             } else {
-                phrase = "Quero ir ao banheiro.";
-                logicExplanation = "[3º Clique: Consequência Fisiológica]";
+                phrase = txt.sim_phr3;
+                logicExplanation = txt.sim_exp3;
                 waterClickCount = 0; // Reset loop
             }
 
