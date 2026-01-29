@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto Tecla Lite | MEC-Shield Ultimate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --bg-calm: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background-color: var(--bg-calm);
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            max-height: 400px;
+            margin: 0 auto;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation utilities */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        /* Logic Simulator Styles */
+        .logic-btn {
+            transition: all 0.2s;
+        }
+        .logic-btn:active {
+            transform: scale(0.95);
+        }
+        .message-bubble {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            border-bottom-left-radius: 0;
+            display: inline-block;
+            margin-top: 0.5rem;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <!-- Chosen Palette: Tecla Calm (Blue/Slate/White) -->
+    <!-- Application Structure Plan: Dashboard-style storytelling. 
+         1. Header: Brand Identity.
+         2. Genesis: The Core Concept.
+         3. Pillars: Interactive Grid.
+         4. Simulator: Live code demo of the logic mentioned in the report.
+         5. Impact: Data Visualization.
+         6. Distribution: Pricing/Tier cards.
+         7. Technical: CSS Diagram.
+         This structure moves from abstract philosophy to concrete features, then to impact and implementation. -->
+    <!-- Visualization & Content Choices: 
+         - Impact Radar Chart: To visually demonstrate the "MEC-Shield" coverage vs traditional apps.
+         - Logic Simulator: HTML/JS interactive buttons to prove the "Smart Interpreter" concept.
+         - Tier Cards: HTML Flexbox for clear comparison.
+         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🛡️</span>
+                <div>
+                    <h1 class="font-bold text-lg text-blue-700 tracking-tight">Tecla Lite</h1>
+                    <span class="text-[10px] uppercase font-bold text-slate-400">MEC-Shield Ultimate (v12)</span>
+                </div>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-500">
+                <a href="#genesis" class="hover:text-blue-600 transition">Génese</a>
+                <a href="#pillars" class="hover:text-blue-600 transition">Pilares</a>
+                <a href="#impact" class="hover:text-blue-600 transition">Impacto</a>
+                <a href="#distribution" class="hover:text-blue-600 transition">Acesso</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-6">
+        <div class="container mx-auto text-center max-w-4xl">
+            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-6 fade-in-up">Afrokódico Engene | Dala De Carvalho</div>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-800 mb-6 leading-tight fade-in-up delay-100">
+                Tecnologia como <span class="text-blue-600">Escudo</span> e <span class="text-blue-600">Ponte</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed fade-in-up delay-200">
+                Uma cápsula de autonomia num único arquivo. Sem servidores, sem dependências, com privacidade absoluta.
+                O ecossistema de tecnologia assistiva portátil para 2026.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center fade-in-up delay-300">
+                <a href="#simulator" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition transform hover:-translate-y-1">Experimentar Lógica</a>
+                <a href="#technical" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition">Filosofia Técnica</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: The Genesis & Pillars -->
+    <section id="genesis" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto mb-12 text-center">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">1. O Que Criamos?</h2>
+                <p class="text-slate-600">
+                    A Tecla Lite não é apenas software; é um ecossistema "Single-File" (Arquivo Único). 
+                    Nesta secção, explore os quatro pilares fundamentais que compõem este escudo protetor.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pillar 1 -->
+                <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-blue-500">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition">🗣️</div>
+                    <h3 class="font-bold text-lg mb-2">Comunicação Aumentativa</h3>
+                    <p class="text-sm text-slate-500">PECS Inteligente e Smart Interpreter para traduzir murmúrios em intenções claras.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-green-500">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition">🛡️</div>
+                    <h3 class="font-bold text-lg mb-2">Autonomia & Segurança</h3>
+                    <p class="text-sm text-slate-500">Cartões de Local Inteligentes e Botão SOS para acesso imediato a ajuda.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-purple-500">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition">🧩</div>
+                    <h3 class="font-bold text-lg mb-2">Terapia & Desenvolvimento</h3>
+                    <p class="text-sm text-slate-500">Musicoterapia (Piano Pro), Arte, Lógica e Regulação Sensorial.</p>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="glass-panel p-6 rounded-3xl hover:shadow-xl transition duration-300 group cursor-pointer border-t-4 border-orange-500">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition">📅</div>
+                    <h3 class="font-bold text-lg mb-2">Gestão de Vida</h3>
+                    <p class="text-sm text-slate-500">Rotinas visuais, higiene e nutrição, operando 100% offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Logic Simulator (The "Wow" Factor) -->
+    <section id="simulator" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4">Cadeia de Intenção: Simulação</h2>
+                    <p class="text-slate-600 mb-6">
+                        O manifesto descreve uma lógica onde a repetição gera contexto. Para pessoas com autismo não-verbal ou afasia, a simplicidade é chave.
+                        <br><br>
+                        <strong>Teste a lógica descrita no relatório:</strong> Clique repetidamente no botão "Água" para ver como o sistema evolui a frase automaticamente.
+                    </p>
+                    <div class="bg-white p-4 rounded-xl shadow-inner border border-slate-200">
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2">Log do Smart Interpreter:</p>
+                        <div id="simulator-log" class="font-mono text-sm text-slate-700 min-h-[60px]">
+                            Aguardando interação...
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-3xl flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                    
+                    <div class="mb-6 w-full">
+                        <div id="speech-bubble-area" class="h-20 flex flex-col items-end justify-end pb-2 pr-4">
+                            <!-- Bubbles appear here -->
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 w-full max-w-sm">
+                        <!-- Water Button (Interactive) -->
+                        <button onclick="simulateWater()" class="logic-btn bg-white border-2 border-blue-100 p-4 rounded-2xl flex flex-col items-center shadow-sm hover:border-blue-400">
+                            <span class="text-4xl mb-1">💧</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600">Água</span>
+                        </button>
+                        
+                        <!-- Dummy Buttons for Visuals -->
+                        <button class="bg-white border-2 border-slate-100 p-4 rounded-2xl flex flex-col items-center opacity-50 cursor-not-allowed">
+                            <span class="text-4xl mb-1">🍎</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600">Comer</span>
+                        </button>
+                        <button class="bg-white border-2 border-slate-100 p-4 rounded-2xl flex flex-col items-center opacity-50 cursor-not-allowed">
+                            <span class="text-4xl mb-1">🚽</span>
+                            <span class="text-[10px] font-bold uppercase text-slate-600">WC</span>
+                        </button>
+                    </div>
+                    <p class="mt-4 text-xs text-blue-500 font-bold">↑ Clique na Água repetidamente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Potential Impact (Data Visualization) -->
+    <section id="impact" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">2. Potencial de Impacto</h2>
+                <p class="text-slate-600">
+                    A universalidade da Tecla Lite permite que ela sirva desde crianças com autismo até idosos e zonas rurais sem internet.
+                    O gráfico abaixo compara a filosofia <strong>MEC-Shield</strong> com soluções tradicionais de SaaS (Software as a Service).
+                </p>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="impactChart"></canvas>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div class="p-4 bg-slate-50 rounded-xl">
+                    <h4 class="font-bold text-slate-800">Autismo Não-Verbal</h4>
+                    <p class="text-xs text-slate-500 mt-1">Cresce com o vocabulário da criança.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl">
+                    <h4 class="font-bold text-slate-800">Pós-AVC / Afasia</h4>
+                    <p class="text-xs text-slate-500 mt-1">Reduz a frustração preenchendo lacunas.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl">
+                    <h4 class="font-bold text-slate-800">Offline / Rural</h4>
+                    <p class="text-xs text-slate-500 mt-1">Funciona via Bluetooth/Zap sem internet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Distribution Model -->
+    <section id="distribution" class="py-16 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">3. Modelo de Distribuição</h2>
+                <p class="text-slate-400">Acesso definido pelo grau de necessidade, não pelo poder de compra.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Level 1 -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition relative">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 1</div>
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-2">A Semente</h3>
+                    <p class="text-slate-400 text-sm mb-6">Gratuito / Open Access</p>
+                    <ul class="text-sm space-y-3 text-slate-300 mb-8">
+                        <li class="flex gap-2"><span>✓</span> Famílias e Situações de Emergência</li>
+                        <li class="flex gap-2"><span>✓</span> Ficheiro .html único</li>
+                        <li class="flex gap-2"><span>✓</span> Partilha via WhatsApp/Bluetooth</li>
+                        <li class="flex gap-2"><span>✓</span> Configuração Local</li>
+                    </ul>
+                </div>
+
+                <!-- Level 2 -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-blue-500 transform md:-translate-y-4 shadow-2xl shadow-blue-900/20 relative">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 2</div>
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-2">O Escudo</h3>
+                    <p class="text-blue-400 text-sm mb-6">Personalização Institucional</p>
+                    <ul class="text-sm space-y-3 text-slate-300 mb-8">
+                        <li class="flex gap-2"><span>✓</span> Escolas e Clínicas</li>
+                        <li class="flex gap-2"><span>✓</span> Pictogramas pré-carregados</li>
+                        <li class="flex gap-2"><span>✓</span> Bloqueio de configurações</li>
+                        <li class="flex gap-2"><span>✓</span> Relatórios com logótipo</li>
+                    </ul>
+                </div>
+
+                <!-- Level 3 -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 hover:border-purple-500 transition relative">
+                    <div class="absolute top-0 right-0 bg-purple-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">Nível 3</div>
+                    <div class="text-5xl mb-4">🌉</div>
+                    <h3 class="text-2xl font-bold mb-2">A Ponte</h3>
+                    <p class="text-slate-400 text-sm mb-6">Hardware Dedicado (Kit MEC-Shield)</p>
+                    <ul class="text-sm space-y-3 text-slate-300 mb-8">
+                        <li class="flex gap-2"><span>✓</span> Limitações severas</li>
+                        <li class="flex gap-2"><span>✓</span> Tablet robusto em modo Kiosk</li>
+                        <li class="flex gap-2"><span>✓</span> Capas de alto impacto</li>
+                        <li class="flex gap-2"><span>✓</span> Suporte técnico prioritário</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Technical Philosophy -->
+    <section id="technical" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4">4. Filosofia Local-First</h2>
+                    <p class="text-slate-600 mb-4">
+                        "Os dados pertencem a quem os gera."
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="bg-red-100 p-2 rounded-lg text-red-600"><span class="font-bold">✕</span></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Sem Rastreamento</h4>
+                                <p class="text-sm text-slate-500">Não sabemos quem usa, onde usa ou o que dizem.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-green-100 p-2 rounded-lg text-green-600"><span class="font-bold">✓</span></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Persistência Local</h4>
+                                <p class="text-sm text-slate-500">LocalStorage mantém rotinas e contactos mesmo se o dispositivo reiniciar.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-blue-100 p-2 rounded-lg text-blue-600"><span class="font-bold">⚡</span></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Leveza Extrema</h4>
+                                <p class="text-sm text-slate-500">Otimizado para rodar em dispositivos com 10 anos de idade.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Visual Diagram of Local First -->
+                <div class="flex-1 flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div class="absolute inset-0 bg-slate-100 rounded-full animate-pulse opacity-50"></div>
+                        <div class="absolute inset-4 bg-white rounded-full shadow-xl flex flex-col items-center justify-center z-10 border-4 border-blue-500">
+                            <span class="text-4xl mb-2">📱</span>
+                            <span class="font-bold text-slate-800">Dispositivo</span>
+                            <span class="text-[10px] text-slate-500">Dados Locais</span>
+                        </div>
+                        <!-- Satellites representing blocked cloud -->
+                        <div class="absolute top-0 right-0 bg-red-50 text-red-400 p-2 rounded-lg text-xs font-bold border border-red-200">
+                            ☁️ Cloud Blocked
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-xl font-bold text-blue-700 mb-4">"Tecnologia com alma. Código com propósito."</h3>
+            <p class="text-slate-500 text-sm mb-8 max-w-2xl mx-auto">
+                A Tecla Lite é a materialização do desejo de curar através do código. 
+                Em 2026, projetamos estar em milhares de lares, servindo como a voz de quem não fala.
+            </p>
+            <div class="text-xs text-slate-400 font-mono">
+                Todos os direitos reservados © 2026 Afrokódico Engene.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 1. Chart.js Implementation for Impact Analysis
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            
+            // Data derived from the Manifesto's emphasis on Privacy, Offline, and Simplicity
+            const data = {
+                labels: ['Privacidade', 'Offline', 'Acessibilidade (Custo)', 'Simplicidade', 'Leveza'],
+                datasets: [{
+                    label: 'Tecla Lite (MEC-Shield)',
+                    data: [100, 100, 100, 90, 95],
+                    fill: true,
+                    backgroundColor: 'rgba(37, 99, 235, 0.2)', // Primary Blue transparent
+                    borderColor: 'rgb(37, 99, 235)',
+                    pointBackgroundColor: 'rgb(37, 99, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(37, 99, 235)'
+                }, {
+                    label: 'Apps Tradicionais (SaaS)',
+                    data: [40, 20, 30, 60, 40],
+                    fill: true,
+                    backgroundColor: 'rgba(148, 163, 184, 0.2)', // Slate transparent
+                    borderColor: 'rgb(148, 163, 184)',
+                    pointBackgroundColor: 'rgb(148, 163, 184)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(148, 163, 184)'
+                }]
+            };
+
+            const config = {
+                type: 'radar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    elements: {
+                        line: { borderWidth: 3 }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { display: true },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false } // Hide numbers for cleaner look
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        });
+
+        // 2. Logic Simulator (Smart Interpreter Demo)
+        let waterClickCount = 0;
+        
+        function simulateWater() {
+            waterClickCount++;
+            const logElement = document.getElementById('simulator-log');
+            const bubbleArea = document.getElementById('speech-bubble-area');
+            let phrase = "";
+            let logicExplanation = "";
+
+            // Chain of Intention Logic from Manifesto
+            if (waterClickCount === 1) {
+                phrase = "Quero água.";
+                logicExplanation = "[1º Clique: Necessidade Imediata]";
+            } else if (waterClickCount === 2) {
+                phrase = "Por favor.";
+                logicExplanation = "[2º Clique: Refinamento Social]";
+            } else {
+                phrase = "Quero ir ao banheiro.";
+                logicExplanation = "[3º Clique: Consequência Fisiológica]";
+                waterClickCount = 0; // Reset loop
+            }
+
+            // Update Text Log
+            logElement.innerHTML = `<span class="text-blue-600 font-bold">${phrase}</span> <span class="text-slate-400 text-xs">${logicExplanation}</span>`;
+
+            // Visual Bubble Animation
+            const bubble = document.createElement('div');
+            bubble.className = 'message-bubble';
+            bubble.innerText = phrase;
+            bubbleArea.appendChild(bubble);
+
+            // Auto-scroll bubble area
+            bubbleArea.scrollTop = bubbleArea.scrollHeight;
+
+            // Remove old bubbles to keep it clean
+            if(bubbleArea.children.length > 3) {
+                bubbleArea.removeChild(bubbleArea.firstChild);
+            }
+        }
+    </script>
+</body>
+</html>
